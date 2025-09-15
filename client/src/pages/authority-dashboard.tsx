@@ -14,11 +14,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Separator } from "@/components/ui/separator";
 import { useLocation } from "wouter";
 import { Shield, Eye, Users, Clock, CheckCircle, AlertTriangle, MapPin, Search, Filter, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function AuthorityDashboard() {
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
+  const { t } = useTranslation();
   
   // Filter and search state
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,8 +34,8 @@ export default function AuthorityDashboard() {
   useEffect(() => {
     if (!authLoading && !user) {
       toast({
-        title: "Unauthorized",
-        description: "You are logged out. Logging in again...",
+        title: t('errors.unauthorized'),
+        description: t('auth.loggedOutRetrying'),
         variant: "destructive",
       });
       setTimeout(() => {
@@ -46,8 +48,8 @@ export default function AuthorityDashboard() {
   useEffect(() => {
     if (user && (user as any)?.userType !== 'authority') {
       toast({
-        title: "Access Denied",
-        description: "You need authority access to view this page.",
+        title: t('errors.accessDenied'),
+        description: t('errors.authorityAccessRequired'),
         variant: "destructive",
       });
       setLocation('/');
@@ -88,7 +90,7 @@ export default function AuthorityDashboard() {
   };
 
   // Process and filter reports
-  const reports = allReports || [];
+  const reports = (allReports as any[]) || [];
   
   // Filtered and searched reports
   const filteredReports = useMemo(() => {
@@ -122,8 +124,8 @@ export default function AuthorityDashboard() {
   
   // Get available categories from reports for filter dropdown
   const availableCategories = useMemo(() => {
-    if (!reports) return [];
-    const categories = [...new Set(reports.map(report => report.category))];
+    if (!reports || !Array.isArray(reports)) return [];
+    const categories = Array.from(new Set(reports.map((report: any) => report.category)));
     return categories.filter(Boolean);
   }, [reports]);
 
@@ -137,9 +139,9 @@ export default function AuthorityDashboard() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-semibold" data-testid="text-welcome">
-                Welcome, {displayName}
+                {t('authority.welcome')}, {displayName}
               </h2>
-              <p className="text-white/80">Authority Portal</p>
+              <p className="text-white/80">{t('authority.portal')}</p>
             </div>
             <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
               <Shield size={24} />
@@ -150,13 +152,13 @@ export default function AuthorityDashboard() {
         <div className="p-4">
           {/* Authority Stats Dashboard */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-4">Reports Overview</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('reports.overview')}</h3>
             <div className="grid grid-cols-2 gap-4">
               <Card className="shadow-sm" data-testid="stat-total-reports">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-muted-foreground text-sm">Total Reports</p>
+                      <p className="text-muted-foreground text-sm">{t('reports.totalReports')}</p>
                       <p className="text-2xl font-bold text-primary" data-testid="stat-total-reports-value">
                         {(authorityStats as any).totalReports}
                       </p>
@@ -172,7 +174,7 @@ export default function AuthorityDashboard() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-muted-foreground text-sm">Pending</p>
+                      <p className="text-muted-foreground text-sm">{t('reports.pending')}</p>
                       <p className="text-2xl font-bold text-accent" data-testid="stat-pending-reports-value">
                         {(authorityStats as any).pendingReports}
                       </p>
@@ -188,7 +190,7 @@ export default function AuthorityDashboard() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-muted-foreground text-sm">In Progress</p>
+                      <p className="text-muted-foreground text-sm">{t('reports.inProgress')}</p>
                       <p className="text-2xl font-bold text-blue-600" data-testid="stat-in-progress-reports-value">
                         {(authorityStats as any).inProgressReports}
                       </p>
@@ -204,7 +206,7 @@ export default function AuthorityDashboard() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-muted-foreground text-sm">Resolved</p>
+                      <p className="text-muted-foreground text-sm">{t('reports.resolved')}</p>
                       <p className="text-2xl font-bold text-secondary" data-testid="stat-resolved-reports-value">
                         {(authorityStats as any).resolvedReports}
                       </p>
@@ -221,7 +223,7 @@ export default function AuthorityDashboard() {
           {/* Reports Management */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h4 className="font-semibold">All Reports ({filteredReports.length})</h4>
+              <h4 className="font-semibold">{t('reports.allReports')} ({filteredReports.length})</h4>
               <Button 
                 variant="outline" 
                 size="sm"
@@ -229,7 +231,7 @@ export default function AuthorityDashboard() {
                 data-testid="button-toggle-filters"
               >
                 <Filter size={16} className="mr-2" />
-                Filters
+                {t('common.filters')}
               </Button>
             </div>
 
@@ -238,7 +240,7 @@ export default function AuthorityDashboard() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                 <Input
-                  placeholder="Search reports by ID, category, location..."
+                  placeholder={t('reports.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -261,30 +263,30 @@ export default function AuthorityDashboard() {
                 <Card className="p-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Status</label>
+                      <label className="text-sm font-medium mb-2 block">{t('reports.status')}</label>
                       <Select value={statusFilter} onValueChange={setStatusFilter}>
                         <SelectTrigger data-testid="select-status-filter">
-                          <SelectValue placeholder="All statuses" />
+                          <SelectValue placeholder={t('reports.allStatuses')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="all">All Statuses</SelectItem>
-                          <SelectItem value="pending">Pending</SelectItem>
-                          <SelectItem value="in_progress">In Progress</SelectItem>
-                          <SelectItem value="resolved">Resolved</SelectItem>
+                          <SelectItem value="all">{t('reports.allStatuses')}</SelectItem>
+                          <SelectItem value="pending">{t('reports.pending')}</SelectItem>
+                          <SelectItem value="in_progress">{t('reports.inProgress')}</SelectItem>
+                          <SelectItem value="resolved">{t('reports.resolved')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Category</label>
+                      <label className="text-sm font-medium mb-2 block">{t('reports.category')}</label>
                       <Select value={categoryFilter} onValueChange={setCategoryFilter}>
                         <SelectTrigger data-testid="select-category-filter">
-                          <SelectValue placeholder="All categories" />
+                          <SelectValue placeholder={t('reports.allCategories')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="all">All Categories</SelectItem>
+                          <SelectItem value="all">{t('reports.allCategories')}</SelectItem>
                           {availableCategories.map(category => (
                             <SelectItem key={category} value={category}>
-                              {category.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                              {category.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -304,7 +306,7 @@ export default function AuthorityDashboard() {
                         }}
                         data-testid="button-clear-filters"
                       >
-                        Clear All Filters
+                        {t('reports.clearFilters')}
                       </Button>
                     </div>
                   )}
@@ -343,7 +345,7 @@ export default function AuthorityDashboard() {
                         {report.photoUrl && (
                           <img 
                             src={report.photoUrl} 
-                            alt="Report evidence" 
+                            alt={t('reports.reportEvidence')} 
                             className="w-12 h-12 rounded-lg object-cover"
                             data-testid={`img-report-${report.id}`}
                           />
@@ -352,7 +354,7 @@ export default function AuthorityDashboard() {
                           <div className="flex items-start justify-between">
                             <div>
                               <h5 className="font-semibold capitalize flex items-center" data-testid={`text-report-title-${report.id}`}>
-                                {report.category.replace('_', ' ')} Issue
+                                {report.category.replace('_', ' ')} {t('reportForm.issue')}
                                 {report.reportId && (
                                   <span className="ml-2 text-xs text-muted-foreground">#{report.reportId}</span>
                                 )}
@@ -383,8 +385,8 @@ export default function AuthorityDashboard() {
               <Card className="p-8 text-center">
                 <div className="text-muted-foreground">
                   <Shield size={48} className="mx-auto mb-4 opacity-50" />
-                  <p>No reports to manage</p>
-                  <p className="text-sm mt-1">Citizens haven't reported any issues yet</p>
+                  <p>{t('authority.noReportsToManage')}</p>
+                  <p className="text-sm mt-1">{t('authority.noReportsMessage')}</p>
                 </div>
               </Card>
             )}
@@ -392,7 +394,7 @@ export default function AuthorityDashboard() {
 
           {/* Quick Actions */}
           <div className="bg-muted rounded-lg p-4">
-            <h4 className="font-semibold mb-3">Quick Actions</h4>
+            <h4 className="font-semibold mb-3">{t('authority.quickActions')}</h4>
             <div className="grid grid-cols-2 gap-3">
               <Button 
                 onClick={() => setLocation('/authority/reports')}
@@ -400,7 +402,7 @@ export default function AuthorityDashboard() {
                 data-testid="button-manage-reports"
               >
                 <Users size={16} className="mr-2" />
-                Manage Reports
+                {t('authority.manageReports')}
               </Button>
               <Button 
                 variant="outline"
@@ -409,7 +411,7 @@ export default function AuthorityDashboard() {
                 data-testid="button-view-analytics"
               >
                 <Eye size={16} className="mr-2" />
-                View Analytics
+                {t('authority.viewAnalytics')}
               </Button>
             </div>
           </div>
@@ -421,7 +423,7 @@ export default function AuthorityDashboard() {
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
-              <span>Report Details</span>
+              <span>{t('reports.reportDetails')}</span>
               {selectedReport && (
                 <Badge 
                   variant={selectedReport.status === 'resolved' ? 'secondary' : 
@@ -438,26 +440,26 @@ export default function AuthorityDashboard() {
             <div className="space-y-6">
               {/* Basic Info */}
               <div>
-                <h4 className="font-semibold mb-3">Basic Information</h4>
+                <h4 className="font-semibold mb-3">{t('reports.basicInformation')}</h4>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-medium text-muted-foreground">Report ID</label>
+                    <label className="text-sm font-medium text-muted-foreground">{t('reports.reportId')}</label>
                     <p className="font-mono" data-testid="modal-report-id">{selectedReport.reportId || 'N/A'}</p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-muted-foreground">Category</label>
+                    <label className="text-sm font-medium text-muted-foreground">{t('reports.category')}</label>
                     <p className="capitalize" data-testid="modal-report-category">
                       {selectedReport.category?.replace('_', ' ')}
                     </p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-muted-foreground">Status</label>
+                    <label className="text-sm font-medium text-muted-foreground">{t('reports.status')}</label>
                     <p className="capitalize" data-testid="modal-report-status-text">
                       {selectedReport.status?.replace('_', ' ')}
                     </p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-muted-foreground">Submitted Date</label>
+                    <label className="text-sm font-medium text-muted-foreground">{t('authority.submittedDate')}</label>
                     <p data-testid="modal-report-date">
                       {new Date(selectedReport.createdAt).toLocaleDateString()}
                     </p>
@@ -469,17 +471,17 @@ export default function AuthorityDashboard() {
 
               {/* Location Info */}
               <div>
-                <h4 className="font-semibold mb-3">Location Information</h4>
+                <h4 className="font-semibold mb-3">{t('reports.locationInformation')}</h4>
                 <div className="space-y-2">
                   <div>
-                    <label className="text-sm font-medium text-muted-foreground">Address</label>
+                    <label className="text-sm font-medium text-muted-foreground">{t('reports.address')}</label>
                     <p className="text-sm" data-testid="modal-report-address">
-                      {selectedReport.address || 'Address not provided'}
+                      {selectedReport.address || t('reports.addressNotProvided')}
                     </p>
                   </div>
                   {selectedReport.latitude && selectedReport.longitude && (
                     <div>
-                      <label className="text-sm font-medium text-muted-foreground">Coordinates</label>
+                      <label className="text-sm font-medium text-muted-foreground">{t('reports.coordinates')}</label>
                       <p className="text-sm font-mono" data-testid="modal-report-coordinates">
                         {selectedReport.latitude.toFixed(6)}, {selectedReport.longitude.toFixed(6)}
                       </p>
@@ -494,7 +496,7 @@ export default function AuthorityDashboard() {
               {selectedReport.description && (
                 <>
                   <div>
-                    <h4 className="font-semibold mb-3">Description</h4>
+                    <h4 className="font-semibold mb-3">{t('reports.description')}</h4>
                     <p className="text-sm" data-testid="modal-report-description">
                       {selectedReport.description}
                     </p>
@@ -506,11 +508,11 @@ export default function AuthorityDashboard() {
               {/* Evidence Photo */}
               {selectedReport.photoUrl && (
                 <div>
-                  <h4 className="font-semibold mb-3">Evidence Photo</h4>
+                  <h4 className="font-semibold mb-3">{t('reports.evidencePhoto')}</h4>
                   <div className="rounded-lg overflow-hidden border">
                     <img 
                       src={selectedReport.photoUrl} 
-                      alt="Report evidence" 
+                      alt={t('reports.reportEvidence')} 
                       className="w-full max-h-96 object-contain bg-muted"
                       data-testid="modal-report-photo"
                     />
@@ -525,19 +527,19 @@ export default function AuthorityDashboard() {
                   onClick={() => setShowDetailModal(false)}
                   data-testid="button-close-modal"
                 >
-                  Close
+                  {t('common.close')}
                 </Button>
                 <Button
                   onClick={() => {
                     // Future: Implement status update functionality
                     toast({
-                      title: "Feature Coming Soon",
+                      title: t('errors.featureComingSoon'),
                       description: "Status update functionality will be implemented in the next phase.",
                     });
                   }}
                   data-testid="button-update-status"
                 >
-                  Update Status
+                  {t('reports.updateStatus')}
                 </Button>
               </div>
             </div>

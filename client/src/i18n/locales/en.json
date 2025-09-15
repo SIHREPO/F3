@@ -17,7 +17,8 @@
     "home": "Home",
     "report": "Report",
     "manage": "Manage",
-    "profile": "Profile"
+    "profile": "Profile",
+    "manageReports": "Manage Reports"
   },
   "home": {
     "welcome": "Welcome, {{name}}",
@@ -45,7 +46,25 @@
     "noReports": "No reports yet",
     "startReporting": "Start by reporting your first civic issue",
     "yourReports": "All Your Reports",
-    "reportHistory": "Your report history"
+    "reportHistory": "Your report history",
+    "overview": "Reports Overview",
+    "allReports": "All Reports",
+    "reportDetails": "Report Details",
+    "reportId": "Report ID",
+    "description": "Description",
+    "location": "Location",
+    "reportedOn": "Reported On",
+    "lastUpdated": "Last Updated",
+    "photoEvidence": "Photo Evidence",
+    "reportEvidence": "Report evidence",
+    "basicInformation": "Basic Information",
+    "locationInformation": "Location Information",
+    "address": "Address",
+    "addressNotProvided": "Address not provided",
+    "coordinates": "Coordinates",
+    "evidencePhoto": "Evidence Photo",
+    "updateStatus": "Update Status",
+    "searchPlaceholder": "Search reports by ID, category, location..."
   },
   "reportForm": {
     "selectCategory": "Select Problem Category",
@@ -109,7 +128,8 @@
     "error": "Error",
     "success": "Success",
     "download": "Download",
-    "logout": "Logout"
+    "logout": "Logout",
+    "notAvailable": "N/A"
   },
   "errors": {
     "pageNotFound": "404 Page Not Found",
@@ -117,7 +137,9 @@
     "unauthorized": "Unauthorized",
     "submissionFailed": "Submission Failed",
     "featureComingSoon": "Feature Coming Soon",
-    "getLocationFailed": "Failed to get location"
+    "getLocationFailed": "Failed to get location",
+    "accessDenied": "Access Denied",
+    "authorityAccessRequired": "You need authority access to view this page."
   },
   "success": {
     "reportSubmitted": "Report Submitted Successfully!",
@@ -135,5 +157,15 @@
     "hindi": "हिंदी",
     "punjabi": "ਪੰਜਾਬੀ",
     "selectLanguage": "Select Language"
+  },
+  "authority": {
+    "welcome": "Welcome",
+    "portal": "Authority Portal",
+    "quickActions": "Quick Actions",
+    "manageReports": "Manage Reports",
+    "viewAnalytics": "View Analytics",
+    "noReportsToManage": "No reports to manage",
+    "noReportsMessage": "Citizens haven't reported any issues yet",
+    "submittedDate": "Submitted Date"
   }
 }

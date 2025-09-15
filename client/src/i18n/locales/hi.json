@@ -17,7 +17,8 @@
     "home": "होम",
     "report": "रिपोर्ट",
     "manage": "प्रबंधन",
-    "profile": "प्रोफाइल"
+    "profile": "प्रोफाइल",
+    "manageReports": "रिपोर्ट प्रबंधन"
   },
   "home": {
     "welcome": "स्वागत है, {{name}}",
@@ -45,7 +46,25 @@
     "noReports": "अभी तक कोई रिपोर्ट नहीं",
     "startReporting": "अपनी पहली नागरिक समस्या की रिपोर्ट करके शुरुआत करें",
     "yourReports": "आपकी सभी रिपोर्टें",
-    "reportHistory": "आपका रिपोर्ट इतिहास"
+    "reportHistory": "आपका रिपोर्ट इतिहास",
+    "overview": "रिपोर्ट अवलोकन",
+    "allReports": "सभी रिपोर्टें",
+    "reportDetails": "रिपोर्ट विवरण",
+    "reportId": "रिपोर्ट आईडी",
+    "description": "विवरण",
+    "location": "स्थान",
+    "reportedOn": "रिपोर्ट की गई",
+    "lastUpdated": "अंतिम अपडेट",
+    "photoEvidence": "फोटो साक्ष्य",
+    "reportEvidence": "रिपोर्ट साक्ष्य",
+    "basicInformation": "मूलभूत जानकारी",
+    "locationInformation": "स्थान जानकारी",
+    "address": "पता",
+    "addressNotProvided": "पता उपलब्ध नहीं",
+    "coordinates": "निर्देशांक",
+    "evidencePhoto": "साक्ष्य फोटो",
+    "updateStatus": "स्थिति अपडेट करें",
+    "searchPlaceholder": "ID, श्रेणी, स्थान द्वारा रिपोर्ट खोजें..."
   },
   "reportForm": {
     "selectCategory": "समस्या श्रेणी चुनें",
@@ -109,7 +128,8 @@
     "error": "त्रुटि",
     "success": "सफलता",
     "download": "डाउनलोड",
-    "logout": "लॉगआउट"
+    "logout": "लॉगआउट",
+    "notAvailable": "N/A"
   },
   "errors": {
     "pageNotFound": "404 पृष्ठ नहीं मिला",
@@ -117,7 +137,9 @@
     "unauthorized": "अनधिकृत",
     "submissionFailed": "सबमिशन विफल",
     "featureComingSoon": "फीचर जल्द आ रहा है",
-    "getLocationFailed": "स्थान प्राप्त करने में विफल"
+    "getLocationFailed": "स्थान प्राप्त करने में विफल",
+    "accessDenied": "पहुंच अस्वीकृत",
+    "authorityAccessRequired": "इस पेज को देखने के लिए आपको अधिकारी पहुंच की आवश्यकता है।"
   },
   "success": {
     "reportSubmitted": "रिपोर्ट सफलतापूर्वक जमा की गई!",
@@ -135,5 +157,15 @@
     "hindi": "हिंदी",
     "punjabi": "ਪੰਜਾਬੀ",
     "selectLanguage": "भाषा चुनें"
+  },
+  "authority": {
+    "welcome": "स्वागत",
+    "portal": "अधिकारी पोर्टल",
+    "quickActions": "त्वरित क्रियाएं",
+    "manageReports": "रिपोर्ट प्रबंधन",
+    "viewAnalytics": "विश्लेषण देखें",
+    "noReportsToManage": "प्रबंधन के लिए कोई रिपोर्ट नहीं",
+    "noReportsMessage": "नागरिकों ने अभी तक कोई मुद्दा रिपोर्ट नहीं किया है",
+    "submittedDate": "जमा करने की तारीख"
   }
 }

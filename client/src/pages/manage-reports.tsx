@@ -8,6 +8,7 @@ import BottomNavigation from "@/components/bottom-navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { History, X, MapPin, Calendar, Camera } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import type { Report } from "@shared/schema";
 
 interface ReportDetailsModalProps {
@@ -16,6 +17,7 @@ interface ReportDetailsModalProps {
 }
 
 function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
+  const { t } = useTranslation();
   if (!report) return null;
 
   return (
@@ -23,7 +25,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
       <div className="bg-background rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
           <h3 className="text-lg font-semibold" data-testid="text-modal-title">
-            Report Details
+            {t('reports.reportDetails')}
           </h3>
           <Button
             variant="ghost"
@@ -38,7 +40,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
         <div className="p-4 space-y-4">
           {/* Report ID */}
           <div>
-            <h4 className="text-sm font-medium text-muted-foreground">Report ID</h4>
+            <h4 className="text-sm font-medium text-muted-foreground">{t('reports.reportId')}</h4>
             <p className="text-sm font-mono" data-testid="text-report-id">
               #{report.reportId}
             </p>
@@ -46,15 +48,15 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
 
           {/* Category */}
           <div>
-            <h4 className="text-sm font-medium text-muted-foreground">Category</h4>
+            <h4 className="text-sm font-medium text-muted-foreground">{t('reports.category')}</h4>
             <p className="capitalize font-medium" data-testid="text-report-category">
-              {report.category.replace('_', ' ')} Issue
+              {report.category.replace('_', ' ')} {t('reportForm.issue')}
             </p>
           </div>
 
           {/* Status */}
           <div>
-            <h4 className="text-sm font-medium text-muted-foreground">Status</h4>
+            <h4 className="text-sm font-medium text-muted-foreground">{t('reports.status')}</h4>
             <span 
               className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
                 report.status === 'resolved' 
@@ -65,7 +67,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
               }`}
               data-testid="status-modal-report"
             >
-              {report.status.replace('_', ' ')}
+              {t(`status.${report.status}`)}
             </span>
           </div>
 
@@ -110,14 +112,14 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
               Reported On
             </h4>
             <p className="text-sm" data-testid="text-modal-date">
-              {report.createdAt ? new Date(report.createdAt).toLocaleString() : 'N/A'}
+              {report.createdAt ? new Date(report.createdAt).toLocaleString() : t('common.notAvailable')}
             </p>
           </div>
 
           {/* Last Updated */}
           {report.updatedAt && report.createdAt && report.updatedAt !== report.createdAt && (
             <div>
-              <h4 className="text-sm font-medium text-muted-foreground">Last Updated</h4>
+              <h4 className="text-sm font-medium text-muted-foreground">{t('reports.lastUpdated')}</h4>
               <p className="text-sm" data-testid="text-modal-updated">
                 {new Date(report.updatedAt).toLocaleString()}
               </p>
@@ -132,14 +134,15 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
 export default function ManageReports() {
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
 
   // Redirect to login if not authenticated
   useEffect(() => {
     if (!authLoading && !user) {
       toast({
-        title: "Unauthorized",
-        description: "You are logged out. Logging in again...",
+        title: t('errors.unauthorized'),
+        description: t('auth.loggedOutRetrying'),
         variant: "destructive",
       });
       setTimeout(() => {
@@ -174,9 +177,9 @@ export default function ManageReports() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h2 className="text-xl font-semibold" data-testid="text-manage-title">
-                  Manage Reports
+                  {t('navigation.manageReports')}
                 </h2>
-                <p className="text-white/80">Your report history</p>
+                <p className="text-white/80">{t('reports.reportHistory')}</p>
               </div>
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                 <History size={24} />
@@ -188,9 +191,9 @@ export default function ManageReports() {
             {/* Reports List */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold">All Your Reports</h4>
+                <h4 className="font-semibold">{t('reports.yourReports')}</h4>
                 <span className="text-sm text-muted-foreground" data-testid="text-report-count">
-                  {userReports.length} report{userReports.length !== 1 ? 's' : ''}
+                  {userReports.length} {userReports.length === 1 ? t('reports.reportCount') : t('reports.reportCountPlural')}
                 </span>
               </div>
               
@@ -235,7 +238,7 @@ export default function ManageReports() {
                             <div className="flex items-start justify-between">
                               <div>
                                 <h5 className="font-semibold capitalize" data-testid={`text-manage-report-title-${report.id}`}>
-                                  {report.category.replace('_', ' ')} Issue
+                                  {report.category.replace('_', ' ')} {t('reportForm.issue')}
                                 </h5>
                                 <p className="text-muted-foreground text-sm" data-testid={`text-manage-report-id-${report.id}`}>
                                   #{report.reportId}
@@ -257,7 +260,7 @@ export default function ManageReports() {
                                 }`}
                                 data-testid={`status-manage-report-${report.id}`}
                               >
-                                {report.status.replace('_', ' ')}
+                                {t(`status.${report.status}`)}
                               </span>
                             </div>
                           </div>
@@ -270,8 +273,8 @@ export default function ManageReports() {
                 <Card className="p-8 text-center">
                   <div className="text-muted-foreground">
                     <History size={48} className="mx-auto mb-4 opacity-50" />
-                    <p data-testid="text-no-reports">No reports yet</p>
-                    <p className="text-sm mt-1">Start by reporting your first civic issue</p>
+                    <p data-testid="text-no-reports">{t('reports.noReports')}</p>
+                    <p className="text-sm mt-1">{t('reports.startReporting')}</p>
                   </div>
                 </Card>
               )}
