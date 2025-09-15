@@ -50,7 +50,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
           <div>
             <h4 className="text-sm font-medium text-muted-foreground">{t('reports.category')}</h4>
             <p className="capitalize font-medium" data-testid="text-report-category">
-              {report.category.replace('_', ' ')} {t('reportForm.issue')}
+              {t(`categories.${report.category}`)}
             </p>
           </div>
 
@@ -74,7 +74,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
           {/* Description */}
           {report.description && (
             <div>
-              <h4 className="text-sm font-medium text-muted-foreground">Description</h4>
+              <h4 className="text-sm font-medium text-muted-foreground">{t('reports.description')}</h4>
               <p className="text-sm" data-testid="text-report-description">
                 {report.description}
               </p>
@@ -84,10 +84,10 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
           {/* Photo */}
           {report.photoUrl && (
             <div>
-              <h4 className="text-sm font-medium text-muted-foreground mb-2">Photo Evidence</h4>
+              <h4 className="text-sm font-medium text-muted-foreground mb-2">{t('reports.photoEvidence')}</h4>
               <img 
                 src={report.photoUrl} 
-                alt="Report evidence" 
+                alt={t('reports.reportEvidence')} 
                 className="w-full rounded-lg object-cover max-h-48"
                 data-testid="img-modal-report"
               />
@@ -98,7 +98,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
           <div>
             <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
               <MapPin size={14} />
-              Location
+              {t('reports.location')}
             </h4>
             <p className="text-sm" data-testid="text-modal-location">
               {report.address || `${report.latitude.toFixed(6)}, ${report.longitude.toFixed(6)}`}
@@ -109,7 +109,7 @@ function ReportDetailsModal({ report, onClose }: ReportDetailsModalProps) {
           <div>
             <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
               <Calendar size={14} />
-              Reported On
+              {t('reports.reportedOn')}
             </h4>
             <p className="text-sm" data-testid="text-modal-date">
               {report.createdAt ? new Date(report.createdAt).toLocaleString() : t('common.notAvailable')}
@@ -225,7 +225,7 @@ export default function ManageReports() {
                           {report.photoUrl ? (
                             <img 
                               src={report.photoUrl} 
-                              alt="Report evidence" 
+                              alt={t('reports.reportEvidence')} 
                               className="w-12 h-12 rounded-lg object-cover"
                               data-testid={`img-manage-report-${report.id}`}
                             />
@@ -238,7 +238,7 @@ export default function ManageReports() {
                             <div className="flex items-start justify-between">
                               <div>
                                 <h5 className="font-semibold capitalize" data-testid={`text-manage-report-title-${report.id}`}>
-                                  {report.category.replace('_', ' ')} {t('reportForm.issue')}
+                                  {t(`categories.${report.category}`)}
                                 </h5>
                                 <p className="text-muted-foreground text-sm" data-testid={`text-manage-report-id-${report.id}`}>
                                   #{report.reportId}
