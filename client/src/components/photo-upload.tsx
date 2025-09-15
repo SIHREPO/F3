@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Camera, Image, RotateCcw } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface PhotoUploadProps {
   onPhotoCapture: (file: File) => void;
@@ -8,6 +9,7 @@ interface PhotoUploadProps {
 }
 
 export default function PhotoUpload({ onPhotoCapture, onContinue }: PhotoUploadProps) {
+  const { t } = useTranslation();
   const [preview, setPreview] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
 
@@ -38,9 +40,9 @@ export default function PhotoUpload({ onPhotoCapture, onContinue }: PhotoUploadP
             <div className="w-16 h-16 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
               <Camera size={24} className="text-muted-foreground" />
             </div>
-            <h4 className="font-semibold mb-2">Add Photo Evidence</h4>
+            <h4 className="font-semibold mb-2">{t('reportForm.addPhoto')}</h4>
             <p className="text-muted-foreground text-sm mb-4">
-              Take a clear photo of the issue to help authorities understand the problem better
+              {t('reportForm.photoHelp')}
             </p>
             <input 
               type="file" 
@@ -58,7 +60,7 @@ export default function PhotoUpload({ onPhotoCapture, onContinue }: PhotoUploadP
                 data-testid="button-take-photo"
               >
                 <Camera size={16} className="mr-2" />
-                Take Photo
+                {t('reportForm.takePhoto')}
               </Button>
               <Button 
                 variant="outline"
@@ -67,7 +69,7 @@ export default function PhotoUpload({ onPhotoCapture, onContinue }: PhotoUploadP
                 data-testid="button-choose-gallery"
               >
                 <Image size={16} className="mr-2" />
-                Choose from Gallery
+                {t('reportForm.chooseGallery')}
               </Button>
             </div>
           </div>
@@ -75,7 +77,7 @@ export default function PhotoUpload({ onPhotoCapture, onContinue }: PhotoUploadP
           <div data-testid="photo-preview">
             <img 
               src={preview} 
-              alt="Issue photo" 
+              alt={t('reportForm.issuePhotoAlt')} 
               className="w-full h-48 object-cover rounded-lg mb-4"
               data-testid="img-preview"
             />
@@ -87,14 +89,14 @@ export default function PhotoUpload({ onPhotoCapture, onContinue }: PhotoUploadP
                 data-testid="button-retake"
               >
                 <RotateCcw size={16} className="mr-2" />
-                Retake
+                {t('reportForm.retake')}
               </Button>
               <Button 
                 onClick={onContinue}
                 className="flex-1 shadow-sm"
                 data-testid="button-continue-photo"
               >
-                Continue →
+                {t('reportForm.continue')}
               </Button>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
+import { useTranslation } from "react-i18next";
 import PWAHeader from "@/components/pwa-header";
 import BottomNavigation from "@/components/bottom-navigation";
 import PhotoUpload from "@/components/photo-upload";
@@ -23,6 +24,7 @@ interface ReportData {
 }
 
 export default function ReportIssue() {
+  const { t } = useTranslation();
   const [step, setStep] = useState<'category' | 'photo' | 'location'>('category');
   const [reportData, setReportData] = useState<ReportData>({
     category: '',
@@ -36,10 +38,10 @@ export default function ReportIssue() {
   const queryClient = useQueryClient();
 
   const categories = [
-    { id: 'drainage', name: 'Drainage', description: 'Water clogging, sewage issues', icon: Droplets, color: 'blue' },
-    { id: 'pothole', name: 'Pothole', description: 'Road damage, broken pavement', icon: Construction, color: 'orange' },
-    { id: 'wire', name: 'Naked Wire', description: 'Exposed electrical wires', icon: Zap, color: 'red' },
-    { id: 'garbage', name: 'Garbage', description: 'Waste accumulation, litter', icon: Trash2, color: 'green' },
+    { id: 'drainage', name: t('categories.drainage'), description: t('categories.drainageDesc'), icon: Droplets, color: 'blue' },
+    { id: 'pothole', name: t('categories.pothole'), description: t('categories.potholeDesc'), icon: Construction, color: 'orange' },
+    { id: 'wire', name: t('categories.wire'), description: t('categories.wireDesc'), icon: Zap, color: 'red' },
+    { id: 'garbage', name: t('categories.garbage'), description: t('categories.garbageDesc'), icon: Trash2, color: 'green' },
   ];
 
   const submitMutation = useMutation({
@@ -70,8 +72,8 @@ export default function ReportIssue() {
     },
     onSuccess: (data) => {
       toast({
-        title: "Report Submitted Successfully!",
-        description: `Your report has been assigned ID #${data.reportId}`,
+        title: t('success.reportSubmitted'),
+        description: t('success.reportSubmittedWithId', { id: data.reportId }),
       });
       queryClient.invalidateQueries({ queryKey: ['/api/reports'] });
       queryClient.invalidateQueries({ queryKey: ['/api/reports/stats'] });
@@ -80,8 +82,8 @@ export default function ReportIssue() {
     onError: (error) => {
       if (isUnauthorizedError(error)) {
         toast({
-          title: "Unauthorized",
-          description: "You are logged out. Logging in again...",
+          title: t('errors.unauthorized'),
+          description: t('auth.loggedOutRetrying'),
           variant: "destructive",
         });
         setTimeout(() => {
@@ -90,8 +92,8 @@ export default function ReportIssue() {
         return;
       }
       toast({
-        title: "Submission Failed",
-        description: error.message || "Failed to submit report. Please try again.",
+        title: t('errors.submissionFailed'),
+        description: error.message || t('reportForm.submitError'),
         variant: "destructive",
       });
     },
@@ -130,14 +132,14 @@ export default function ReportIssue() {
             >
               <ArrowLeft size={20} />
             </Button>
-            <h2 className="text-xl font-semibold">Report Issue</h2>
+            <h2 className="text-xl font-semibold">{t('navigation.report')}</h2>
           </div>
         </div>
 
         <div className="p-4">
           {step === 'category' && (
             <div data-testid="step-category">
-              <h3 className="text-lg font-semibold mb-4">Select Problem Category</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('reportForm.selectCategory')}</h3>
               <div className="grid grid-cols-2 gap-4">
                 {categories.map((category) => {
                   const IconComponent = category.icon;
@@ -172,9 +174,9 @@ export default function ReportIssue() {
                 <div className="flex items-start space-x-3">
                   <Info size={20} className="text-primary mt-1" />
                   <div>
-                    <p className="text-sm font-medium">Reporting Guidelines</p>
+                    <p className="text-sm font-medium">{t('reportForm.reportingGuidelines')}</p>
                     <p className="text-muted-foreground text-sm mt-1">
-                      Select the category that best describes your issue. You'll be able to provide more details in the next steps.
+                      {t('reportForm.selectCategoryHelp')}
                     </p>
                   </div>
                 </div>
@@ -184,7 +186,7 @@ export default function ReportIssue() {
 
           {step === 'photo' && (
             <div data-testid="step-photo">
-              <h3 className="text-lg font-semibold mb-4">Upload Photo</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('reportForm.addPhoto')}</h3>
               
               {/* Selected category display */}
               {reportData.category && (
@@ -199,9 +201,9 @@ export default function ReportIssue() {
                     </div>
                     <div>
                       <p className="font-medium capitalize">
-                        {categories.find(c => c.id === reportData.category)?.name} Issue
+                        {categories.find(c => c.id === reportData.category)?.name} {t('reportForm.issue')}
                       </p>
-                      <p className="text-muted-foreground text-sm">Selected category</p>
+                      <p className="text-muted-foreground text-sm">{t('reportForm.selectedCategory')}</p>
                     </div>
                   </div>
                 </div>
@@ -213,9 +215,9 @@ export default function ReportIssue() {
               />
 
               <div className="mt-4">
-                <label className="block text-sm font-medium mb-2">Additional Description (Optional)</label>
+                <label className="block text-sm font-medium mb-2">{t('reportForm.additionalDescription')}</label>
                 <Textarea 
-                  placeholder="Provide any additional details about the issue..."
+                  placeholder={t('reportForm.descriptionPlaceholder')}
                   value={reportData.description}
                   onChange={(e) => setReportData(prev => ({ ...prev, description: e.target.value }))}
                   rows={3}
@@ -227,7 +229,7 @@ export default function ReportIssue() {
 
           {step === 'location' && (
             <div data-testid="step-location">
-              <h3 className="text-lg font-semibold mb-4">Select Location</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('reportForm.selectLocation')}</h3>
               
               <LocationPicker 
                 onLocationCapture={handleLocationCapture}
@@ -239,16 +241,16 @@ export default function ReportIssue() {
                 onClick={() => submitMutation.mutate()}
                 data-testid="button-submit-report"
               >
-                {submitMutation.isPending ? "Submitting..." : "Submit Report"}
+                {submitMutation.isPending ? t('common.processing') : t('reportForm.submitReport')}
               </Button>
 
               <div className="bg-muted rounded-lg p-4 mt-4">
                 <div className="flex items-start space-x-3">
                   <Info size={20} className="text-primary mt-1" />
                   <div>
-                    <p className="text-sm font-medium">Location Guidelines</p>
+                    <p className="text-sm font-medium">{t('reportForm.locationGuidelines')}</p>
                     <p className="text-muted-foreground text-sm mt-1">
-                      Accurate location helps authorities respond faster. Make sure you're at the exact location of the issue when capturing coordinates.
+                      {t('reportForm.locationHelp')}
                     </p>
                   </div>
                 </div>

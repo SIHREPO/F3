@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, RotateCcw } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { initializeGoogleMaps, getCurrentPosition, reverseGeocode } from "@/lib/maps";
 
 interface LocationPickerProps {
@@ -9,6 +10,7 @@ interface LocationPickerProps {
 }
 
 export default function LocationPicker({ onLocationCapture }: LocationPickerProps) {
+  const { t } = useTranslation();
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [address, setAddress] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +36,7 @@ export default function LocationPicker({ onLocationCapture }: LocationPickerProp
         onLocationCapture(coords, fallbackAddress);
       }
     } catch (err: any) {
-      setError(err.message || "Failed to get location");
+      setError(err.message || t('location.getLocationFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -64,10 +66,10 @@ export default function LocationPicker({ onLocationCapture }: LocationPickerProp
           </div>
           <div>
             <p className="font-semibold">
-              {isLoading ? "Getting Location..." : location ? "Location Captured" : "Use Current Location"}
+              {isLoading ? t('location.gettingLocation') : location ? t('location.locationCaptured') : t('location.useCurrentLocation')}
             </p>
             <p className="text-primary-foreground/80 text-sm">
-              {isLoading ? "Please wait" : location ? "Tap to update" : "Tap to get your exact coordinates"}
+              {isLoading ? t('location.pleaseWait') : location ? t('location.tapToUpdate') : t('location.tapForCoordinates')}
             </p>
           </div>
         </div>
@@ -88,12 +90,12 @@ export default function LocationPicker({ onLocationCapture }: LocationPickerProp
                 <MapPin size={20} className="text-secondary" />
               </div>
               <div className="flex-1">
-                <h4 className="font-semibold mb-1">Location Captured</h4>
+                <h4 className="font-semibold mb-1">{t('location.locationCaptured')}</h4>
                 <p className="text-muted-foreground text-sm" data-testid="coordinates-display">
-                  Lat: {location.lat.toFixed(6)}, Lng: {location.lng.toFixed(6)}
+                  {t('location.latitude')}: {location.lat.toFixed(6)}, {t('location.longitude')}: {location.lng.toFixed(6)}
                 </p>
                 <p className="text-muted-foreground text-sm" data-testid="address-display">
-                  {address || "Fetching address..."}
+                  {address || t('location.fetchingAddress')}
                 </p>
               </div>
               <Button
@@ -118,9 +120,9 @@ export default function LocationPicker({ onLocationCapture }: LocationPickerProp
             <div className="w-full h-full bg-muted rounded-lg flex items-center justify-center">
               <div className="text-center">
                 <MapPin size={48} className="mx-auto mb-2 text-muted-foreground" />
-                <p className="text-muted-foreground">Map will load here</p>
+                <p className="text-muted-foreground">{t('location.mapWillLoad')}</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Location: {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
+                  {t('location.locationColon')} {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
                 </p>
               </div>
             </div>

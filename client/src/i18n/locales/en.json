@@ -10,7 +10,8 @@
     "citizenDescription": "Report issues in your community",
     "authorityDescription": "Manage and resolve reported issues",
     "secureAuth": "Secure Authentication",
-    "chooseRole": "Your data is protected with secure authentication. Choose your role to get started."
+    "chooseRole": "Your data is protected with secure authentication. Choose your role to get started.",
+    "loggedOutRetrying": "You are logged out. Logging in again..."
   },
   "navigation": {
     "home": "Home",
@@ -58,8 +59,15 @@
     "descriptionPlaceholder": "Provide any additional details about the issue...",
     "selectLocation": "Select Location",
     "locationGuidelines": "Location Guidelines",
-    "locationHelp": "Accurate location helps authorities respond faster...",
-    "photoHelp": "Take a clear photo of the issue to help authorities understand the problem better"
+    "locationHelp": "Accurate location helps authorities respond faster. Make sure you're at the exact location of the issue when capturing coordinates.",
+    "photoHelp": "Take a clear photo of the issue to help authorities understand the problem better",
+    "reportingGuidelines": "Reporting Guidelines",
+    "selectCategoryHelp": "Select the category that best describes your issue. You'll be able to provide more details in the next steps.",
+    "issue": "Issue",
+    "selectedCategory": "Selected category",
+    "reportAssignedId": "Your report has been assigned ID",
+    "submitError": "Failed to submit report. Please try again.",
+    "issuePhotoAlt": "Issue photo"
   },
   "location": {
     "useCurrentLocation": "Use Current Location",
@@ -68,13 +76,22 @@
     "pleaseWait": "Please wait",
     "tapToUpdate": "Tap to update",
     "tapForCoordinates": "Tap to get your exact coordinates",
-    "fetchingAddress": "Fetching address..."
+    "fetchingAddress": "Fetching address...",
+    "getLocationFailed": "Failed to get location",
+    "mapWillLoad": "Map will load here",
+    "locationColon": "Location:",
+    "latitude": "Lat",
+    "longitude": "Lng"
   },
   "categories": {
     "drainage": "Drainage",
     "pothole": "Pothole",
     "wire": "Wire",
-    "garbage": "Garbage"
+    "garbage": "Garbage",
+    "drainageDesc": "Water clogging, sewage issues",
+    "potholeDesc": "Road damage, broken pavement",
+    "wireDesc": "Exposed electrical wires",
+    "garbageDesc": "Waste accumulation, litter"
   },
   "status": {
     "pending": "Pending",
@@ -99,10 +116,12 @@
     "pageNotFoundDescription": "Did you forget to add the page to the router?",
     "unauthorized": "Unauthorized",
     "submissionFailed": "Submission Failed",
-    "featureComingSoon": "Feature Coming Soon"
+    "featureComingSoon": "Feature Coming Soon",
+    "getLocationFailed": "Failed to get location"
   },
   "success": {
-    "reportSubmitted": "Report Submitted Successfully!"
+    "reportSubmitted": "Report Submitted Successfully!",
+    "reportSubmittedWithId": "Your report has been successfully submitted! Report ID: #{{id}}"
   },
   "chatbot": {
     "title": "AI Assistant",
