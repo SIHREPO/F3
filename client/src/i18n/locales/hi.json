@@ -1,0 +1,119 @@
+{
+  "app": {
+    "title": "स्वच्छ जनता",
+    "tagline": "नागरिक समस्याओं की रिपोर्ट करें और एक बेहतर समुदाय बनाने में मदद करें"
+  },
+  "auth": {
+    "welcome": "स्वच्छ जनता में आपका स्वागत है",
+    "loginAsCitizen": "नागरिक के रूप में लॉगिन करें",
+    "loginAsAuthority": "अधिकारी के रूप में लॉगिन करें",
+    "citizenDescription": "अपने समुदाय में समस्याओं की रिपोर्ट करें",
+    "authorityDescription": "रिपोर्ट की गई समस्याओं का प्रबंधन और समाधान करें",
+    "secureAuth": "सुरक्षित प्रमाणीकरण",
+    "chooseRole": "आपका डेटा सुरक्षित प्रमाणीकरण के साथ सुरक्षित है। शुरू करने के लिए अपनी भूमिका चुनें।"
+  },
+  "navigation": {
+    "home": "होम",
+    "report": "रिपोर्ट",
+    "manage": "प्रबंधन",
+    "profile": "प्रोफाइल"
+  },
+  "home": {
+    "welcome": "स्वागत है, {{name}}",
+    "citizenPortal": "नागरिक पोर्टल",
+    "authorityPortal": "अधिकारी पोर्टल",
+    "recentReports": "हाल की रिपोर्टें",
+    "newReport": "नई रिपोर्ट",
+    "viewAllReports": "सभी रिपोर्ट देखें",
+    "manageReports": "रिपोर्ट प्रबंधन",
+    "viewAnalytics": "विश्लेषण देखें"
+  },
+  "reports": {
+    "dashboard": "आपका रिपोर्ट डैशबोर्ड",
+    "totalReports": "कुल रिपोर्टें",
+    "resolved": "हल हो गया",
+    "pending": "लंबित",
+    "inProgress": "प्रगति में",
+    "status": "स्थिति",
+    "category": "श्रेणी",
+    "allStatuses": "सभी स्थितियां",
+    "allCategories": "सभी श्रेणियां",
+    "clearFilters": "सभी फिल्टर साफ़ करें",
+    "searchReports": "रिपोर्ट खोजें...",
+    "noReports": "अभी तक कोई रिपोर्ट नहीं",
+    "startReporting": "अपनी पहली नागरिक समस्या की रिपोर्ट करके शुरुआत करें",
+    "yourReports": "आपकी सभी रिपोर्टें",
+    "reportHistory": "आपका रिपोर्ट इतिहास"
+  },
+  "reportForm": {
+    "selectCategory": "समस्या श्रेणी चुनें",
+    "addPhoto": "फोटो साक्ष्य जोड़ें",
+    "takePhoto": "फोटो लें",
+    "chooseGallery": "गैलरी से चुनें",
+    "retake": "पुन: लें",
+    "continue": "जारी रखें →",
+    "submitReport": "रिपोर्ट जमा करें",
+    "additionalDescription": "अतिरिक्त विवरण (वैकल्पिक)",
+    "descriptionPlaceholder": "समस्या के बारे में कोई अतिरिक्त विवरण प्रदान करें...",
+    "selectLocation": "स्थान चुनें",
+    "locationGuidelines": "स्थान दिशानिर्देश",
+    "locationHelp": "सटीक स्थान अधिकारियों को तेजी से जवाब देने में मदद करता है...",
+    "photoHelp": "अधिकारियों को समस्या को बेहतर तरीके से समझने में मदद के लिए समस्या की स्पष्ट तस्वीर लें"
+  },
+  "location": {
+    "useCurrentLocation": "वर्तमान स्थान का उपयोग करें",
+    "gettingLocation": "स्थान प्राप्त कर रहे हैं...",
+    "locationCaptured": "स्थान कैप्चर हो गया",
+    "pleaseWait": "कृपया प्रतीक्षा करें",
+    "tapToUpdate": "अपडेट करने के लिए टैप करें",
+    "tapForCoordinates": "अपने सटीक निर्देशांक प्राप्त करने के लिए टैप करें",
+    "fetchingAddress": "पता लाया जा रहा है..."
+  },
+  "categories": {
+    "drainage": "जल निकासी",
+    "pothole": "गड्ढा",
+    "wire": "तार",
+    "garbage": "कचरा"
+  },
+  "status": {
+    "pending": "लंबित",
+    "in_progress": "प्रगति में",
+    "resolved": "हल हो गया",
+    "rejected": "अस्वीकृत"
+  },
+  "common": {
+    "processing": "प्रसंस्करण...",
+    "close": "बंद करें",
+    "back": "वापस",
+    "filters": "फिल्टर",
+    "search": "खोजें",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "download": "डाउनलोड",
+    "logout": "लॉगआउट"
+  },
+  "errors": {
+    "pageNotFound": "404 पृष्ठ नहीं मिला",
+    "pageNotFoundDescription": "क्या आप पृष्ठ को राउटर में जोड़ना भूल गए?",
+    "unauthorized": "अनधिकृत",
+    "submissionFailed": "सबमिशन विफल",
+    "featureComingSoon": "फीचर जल्द आ रहा है"
+  },
+  "success": {
+    "reportSubmitted": "रिपोर्ट सफलतापूर्वक जमा की गई!"
+  },
+  "chatbot": {
+    "title": "AI सहायक",
+    "greeting": "नमस्ते! मैं स्वच्छ जनता के लिए आपका AI सहायक हूँ। मैं नागरिक समस्याओं की रिपोर्ट करने, ऐप का उपयोग करने या सामान्य प्रश्नों में आपकी मदद कर सकता हूँ। आज मैं आपकी कैसे मदद कर सकता हूँ?",
+    "placeholder": "मुझसे कुछ भी पूछें...",
+    "errorMessage": "क्षमा करें, मुझे अभी जवाब देने में परेशानी हो रही है। कृपया दोबारा कोशिश करें।",
+    "technicalDifficulties": "मुझे तकनीकी कठिनाइयों का सामना कर रहा हूँ। कृपया बाद में पुन: प्रयास करें।"
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "punjabi": "ਪੰਜਾਬੀ",
+    "selectLanguage": "भाषा चुनें"
+  }
+}

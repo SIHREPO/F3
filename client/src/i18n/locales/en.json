@@ -1,0 +1,119 @@
+{
+  "app": {
+    "title": "Swatch Janta",
+    "tagline": "Report civic issues and help build a better community"
+  },
+  "auth": {
+    "welcome": "Welcome to Swatch Janta",
+    "loginAsCitizen": "Login as Citizen",
+    "loginAsAuthority": "Login as Authority",
+    "citizenDescription": "Report issues in your community",
+    "authorityDescription": "Manage and resolve reported issues",
+    "secureAuth": "Secure Authentication",
+    "chooseRole": "Your data is protected with secure authentication. Choose your role to get started."
+  },
+  "navigation": {
+    "home": "Home",
+    "report": "Report",
+    "manage": "Manage",
+    "profile": "Profile"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}",
+    "citizenPortal": "Citizen Portal",
+    "authorityPortal": "Authority Portal",
+    "recentReports": "Recent Reports",
+    "newReport": "New Report",
+    "viewAllReports": "View All Reports",
+    "manageReports": "Manage Reports",
+    "viewAnalytics": "View Analytics"
+  },
+  "reports": {
+    "dashboard": "Your Reports Dashboard",
+    "totalReports": "Total Reports",
+    "resolved": "Resolved",
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "status": "Status",
+    "category": "Category",
+    "allStatuses": "All Statuses",
+    "allCategories": "All Categories",
+    "clearFilters": "Clear All Filters",
+    "searchReports": "Search reports...",
+    "noReports": "No reports yet",
+    "startReporting": "Start by reporting your first civic issue",
+    "yourReports": "All Your Reports",
+    "reportHistory": "Your report history"
+  },
+  "reportForm": {
+    "selectCategory": "Select Problem Category",
+    "addPhoto": "Add Photo Evidence",
+    "takePhoto": "Take Photo",
+    "chooseGallery": "Choose from Gallery",
+    "retake": "Retake",
+    "continue": "Continue →",
+    "submitReport": "Submit Report",
+    "additionalDescription": "Additional Description (Optional)",
+    "descriptionPlaceholder": "Provide any additional details about the issue...",
+    "selectLocation": "Select Location",
+    "locationGuidelines": "Location Guidelines",
+    "locationHelp": "Accurate location helps authorities respond faster...",
+    "photoHelp": "Take a clear photo of the issue to help authorities understand the problem better"
+  },
+  "location": {
+    "useCurrentLocation": "Use Current Location",
+    "gettingLocation": "Getting Location...",
+    "locationCaptured": "Location Captured",
+    "pleaseWait": "Please wait",
+    "tapToUpdate": "Tap to update",
+    "tapForCoordinates": "Tap to get your exact coordinates",
+    "fetchingAddress": "Fetching address..."
+  },
+  "categories": {
+    "drainage": "Drainage",
+    "pothole": "Pothole",
+    "wire": "Wire",
+    "garbage": "Garbage"
+  },
+  "status": {
+    "pending": "Pending",
+    "in_progress": "In Progress", 
+    "resolved": "Resolved",
+    "rejected": "Rejected"
+  },
+  "common": {
+    "processing": "Processing...",
+    "close": "Close",
+    "back": "Back",
+    "filters": "Filters",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "download": "Download",
+    "logout": "Logout"
+  },
+  "errors": {
+    "pageNotFound": "404 Page Not Found",
+    "pageNotFoundDescription": "Did you forget to add the page to the router?",
+    "unauthorized": "Unauthorized",
+    "submissionFailed": "Submission Failed",
+    "featureComingSoon": "Feature Coming Soon"
+  },
+  "success": {
+    "reportSubmitted": "Report Submitted Successfully!"
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "greeting": "Hello! I'm your AI assistant for Swatch Janta. I can help you with questions about reporting civic issues, using the app, or general inquiries. How can I help you today?",
+    "placeholder": "Ask me anything...",
+    "errorMessage": "Sorry, I'm having trouble responding right now. Please try again.",
+    "technicalDifficulties": "I'm experiencing technical difficulties. Please try again later."
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "punjabi": "ਪੰਜਾਬੀ",
+    "selectLanguage": "Select Language"
+  }
+}

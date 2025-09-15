@@ -1,0 +1,119 @@
+{
+  "app": {
+    "title": "ਸਵਚੱ ਜਨਤਾ",
+    "tagline": "ਸਿਵਿਲ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰੋ ਅਤੇ ਇੱਕ ਬਿਹਤਰ ਕਮਿਊਨਿਟੀ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰੋ"
+  },
+  "auth": {
+    "welcome": "ਸਵਚੱ ਜਨਤਾ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ",
+    "loginAsCitizen": "ਨਾਗਰਿਕ ਵਜੋਂ ਲੌਗਿਨ ਕਰੋ",
+    "loginAsAuthority": "ਅਧਿਕਾਰੀ ਵਜੋਂ ਲੌਗਿਨ ਕਰੋ",
+    "citizenDescription": "ਆਪਣੇ ਕਮਿਊਨਿਟੀ ਵਿੱਚ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+    "authorityDescription": "ਰਿਪੋਰਟ ਕੀਤੇ ਮੁੱਦਿਆਂ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਹੱਲ ਕਰੋ",
+    "secureAuth": "ਸੁਰੱਖਿਤ ਪ੍ਰਮਾਣਿਕਤਾ",
+    "chooseRole": "ਤੁਹਾਡਾ ਡੇਟਾ ਸੁਰੱਖਿਤ ਪ੍ਰਮਾਣਿਕਤਾ ਨਾਲ ਸੁਰੱਖਿਤ ਹੈ। ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਪਣੀ ਭੂਮਿਕਾ ਚੁਣੋ।"
+  },
+  "navigation": {
+    "home": "ਹੋਮ",
+    "report": "ਰਿਪੋਰਟ",
+    "manage": "ਪ੍ਰਬੰਧਨ",
+    "profile": "ਪ੍ਰੋਫਾਈਲ"
+  },
+  "home": {
+    "welcome": "ਸਵਾਗਤ ਹੈ, {{name}}",
+    "citizenPortal": "ਨਾਗਰਿਕ ਪੋਰਟਲ",
+    "authorityPortal": "ਅਧਿਕਾਰੀ ਪੋਰਟਲ",
+    "recentReports": "ਹਾਲ ਦੀਆਂ ਰਿਪੋਰਟਾਂ",
+    "newReport": "ਨਵੀਂ ਰਿਪੋਰਟ",
+    "viewAllReports": "ਸਾਰੀਆਂ ਰਿਪੋਰਟਾਂ ਵੇਖੋ",
+    "manageReports": "ਰਿਪੋਰਟ ਪ੍ਰਬੰਧਨ",
+    "viewAnalytics": "ਵਿਸ਼ਲੇਸ਼ਣ ਵੇਖੋ"
+  },
+  "reports": {
+    "dashboard": "ਤੁਹਾਡਾ ਰਿਪੋਰਟ ਡੈਸ਼ਬੋਰਡ",
+    "totalReports": "ਕੁੱਲ ਰਿਪੋਰਟਾਂ",
+    "resolved": "ਹੱਲ ਹੋ ਗਿਆ",
+    "pending": "ਬਕਾਇਆ",
+    "inProgress": "ਪ੍ਰਗਤੀ ਵਿੱਚ",
+    "status": "ਸਥਿਤੀ",
+    "category": "ਸ਼੍ਰੇਣੀ",
+    "allStatuses": "ਸਾਰੀਆਂ ਸਥਿਤੀਆਂ",
+    "allCategories": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
+    "clearFilters": "ਸਾਰੇ ਫਿਲਟਰ ਸਾਫ਼ ਕਰੋ",
+    "searchReports": "ਰਿਪੋਰਟਾਂ ਖੋਜੋ...",
+    "noReports": "ਅਜੇ ਤੱਕ ਕੋਈ ਰਿਪੋਰਟ ਨਹੀਂ",
+    "startReporting": "ਆਪਣੀ ਪਹਿਲੀ ਸਿਵਿਲ ਮੁੱਦੇ ਦੀ ਰਿਪੋਰਟ ਕਰਕੇ ਸ਼ੁਰੂਆਤ ਕਰੋ",
+    "yourReports": "ਤੁਹਾਡੀਆਂ ਸਾਰੀਆਂ ਰਿਪੋਰਟਾਂ",
+    "reportHistory": "ਤੁਹਾਡਾ ਰਿਪੋਰਟ ਇਤਿਹਾਸ"
+  },
+  "reportForm": {
+    "selectCategory": "ਸਮੱਸਿਆ ਸ਼੍ਰੇਣੀ ਚੁਣੋ",
+    "addPhoto": "ਫੋਟੋ ਸਬੂਤ ਜੋੜੋ",
+    "takePhoto": "ਫੋਟੋ ਖਿੱਚੋ",
+    "chooseGallery": "ਗੈਲਰੀ ਤੋਂ ਚੁਣੋ",
+    "retake": "ਦੁਬਾਰਾ ਲਵੋ",
+    "continue": "ਜਾਰੀ ਰੱਖੋ →",
+    "submitReport": "ਰਿਪੋਰਟ ਜਮ੍ਹਾਂ ਕਰੋ",
+    "additionalDescription": "ਵਾਧੂ ਵੇਰਵਾ (ਵਿਕਲਪਿਕ)",
+    "descriptionPlaceholder": "ਮੁੱਦੇ ਬਾਰੇ ਕੋਈ ਵਾਧੂ ਵੇਰਵਾ ਪ੍ਰਦਾਨ ਕਰੋ...",
+    "selectLocation": "ਸਥਾਨ ਚੁਣੋ",
+    "locationGuidelines": "ਸਥਾਨ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼",
+    "locationHelp": "ਸਹੀ ਸਥਾਨ ਅਧਿਕਾਰੀਆਂ ਨੂੰ ਤੇਜ਼ੀ ਨਾਲ ਜਵਾਬ ਦੇਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ...",
+    "photoHelp": "ਅਧਿਕਾਰੀਆਂ ਨੂੰ ਸਮੱਸਿਆ ਨੂੰ ਬਿਹਤਰ ਢੰਗ ਨਾਲ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਲਈ ਮੁੱਦੇ ਦੀ ਸਪਸ਼ਟ ਤਸਵੀਰ ਖਿੱਚੋ"
+  },
+  "location": {
+    "useCurrentLocation": "ਮੌਜੂਦਾ ਸਥਾਨ ਵਰਤੋ",
+    "gettingLocation": "ਸਥਾਨ ਲਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+    "locationCaptured": "ਸਥਾਨ ਕੈਪਚਰ ਹੋ ਗਿਆ",
+    "pleaseWait": "ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ",
+    "tapToUpdate": "ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ",
+    "tapForCoordinates": "ਆਪਣੇ ਸਹੀ ਨਿਰਦੇਸ਼ਾਂਕ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ",
+    "fetchingAddress": "ਪਤਾ ਲਿਆਂਦਾ ਜਾ ਰਿਹਾ ਹੈ..."
+  },
+  "categories": {
+    "drainage": "ਨਿਕਾਸੀ",
+    "pothole": "ਟੋਆ",
+    "wire": "ਤਾਰ",
+    "garbage": "ਕੂੜਾ"
+  },
+  "status": {
+    "pending": "ਬਕਾਇਆ",
+    "in_progress": "ਪ੍ਰਗਤੀ ਵਿੱਚ",
+    "resolved": "ਹੱਲ ਹੋ ਗਿਆ",
+    "rejected": "ਰੱਦ"
+  },
+  "common": {
+    "processing": "ਪ੍ਰਸੰਸਕਰਣ...",
+    "close": "ਬੰਦ ਕਰੋ",
+    "back": "ਪਿੱਛੇ",
+    "filters": "ਫਿਲਟਰ",
+    "search": "ਖੋਜੋ",
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "error": "ਗਲਤੀ",
+    "success": "ਸਫਲਤਾ",
+    "download": "ਡਾਊਨਲੋਡ",
+    "logout": "ਲੌਗਆਊਟ"
+  },
+  "errors": {
+    "pageNotFound": "404 ਪੰਨਾ ਨਹੀਂ ਮਿਲਿਆ",
+    "pageNotFoundDescription": "ਕੀ ਤੁਸੀਂ ਪੰਨਾ ਰਾਊਟਰ ਵਿੱਚ ਜੋੜਨਾ ਭੁੱਲ ਗਏ?",
+    "unauthorized": "ਅਧਿਕਾਰ ਰਹਿਤ",
+    "submissionFailed": "ਸਬਮਿਸ਼ਨ ਅਸਫਲ",
+    "featureComingSoon": "ਫੀਚਰ ਜਲਦ ਆ ਰਿਹਾ ਹੈ"
+  },
+  "success": {
+    "reportSubmitted": "ਰਿਪੋਰਟ ਸਫਲਤਾਪੂਰਵਕ ਜਮ੍ਹਾਂ ਕੀਤੀ ਗਈ!"
+  },
+  "chatbot": {
+    "title": "AI ਸਹਾਇਕ",
+    "greeting": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ ਸਵਚੱ ਜਨਤਾ ਲਈ ਤੁਹਾਡਾ AI ਸਹਾਇਕ ਹਾਂ। ਮੈਂ ਸਿਵਿਲ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰਨ, ਐਪ ਦਾ ਉਪਯੋਗ ਕਰਨ, ਜਾਂ ਆਮ ਪੁੱਛ-ਗਿੱਛ ਬਾਰੇ ਸਵਾਲਾਂ ਨਾਲ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ। ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ?",
+    "placeholder": "ਮੈਨੂੰ ਕੁਝ ਵੀ ਪੁੱਛੋ...",
+    "errorMessage": "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂੰ ਹੁਣ ਜਵਾਬ ਦੇਣ ਵਿੱਚ ਮੁਸ਼ਕਿਲ ਹੋ ਰਹੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "technicalDifficulties": "ਮੈਨੂੰ ਤਕਨੀਕੀ ਮੁਸ਼ਕਿਲਾਂ ਦਾ ਸਾਹਮਣਾ ਕਰ ਰਿਹਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "punjabi": "ਪੰਜਾਬੀ",
+    "selectLanguage": "ਭਾਸ਼ਾ ਚੁਣੋ"
+  }
+}

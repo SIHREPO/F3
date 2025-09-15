@@ -1,0 +1,37 @@
+{
+  "name": "Swatch Janta - Civic Issue Reporting",
+  "short_name": "SwatchJanta",
+  "description": "Report civic issues and help build a better community",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b72c4",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iI2ZmZmZmZiIgdmlld0JveD0iMCAwIDE5MiAxOTIiPiAgICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzNiNzJjNCIvPiAgICA8cGF0aCBkPSJNNDggODBoOTZ2MzJINDh6TTY0IDEyOGg2NHYxNkg2NHpNODAgOTZoMzJ2MTZIODBaIiBmaWxsPSIjZmZmIi8+ICA8L3N2Zz4=",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iI2ZmZmZmZiIgdmlld0JveD0iMCAwIDUxMiA1MTIiPiAgICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzNiNzJjNCIvPiAgICA8cGF0aCBkPSJNMTI4IDIxNmgyNTZ2ODRIMTI4ek0xNzYgMzQ0aDE2MHY0NEgxNzZ6TTIyNCAyNTZoNjR2NDRoLTY0WiIgZmlsbD0iI2ZmZiIvPiAgPC9zdmc+",
+      "sizes": "512x512", 
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDMyIiBoZWlnaHQ9Ijc2OCIgZmlsbD0iI2ZmZmZmZiIgdmlld0JveD0iMCAwIDQzMiA3NjgiPiAgICA8cmVjdCB3aWR0aD0iNDMyIiBoZWlnaHQ9Ijc2OCIgZmlsbD0iI2Y5ZmFmYiIvPiAgICA8cmVjdCB3aWR0aD0iNDMyIiBoZWlnaHQ9IjY0IiBmaWxsPSIjM2I3MmM0Ii8+ICAgIDx0ZXh0IHg9IjIxNiIgeT0iNDAiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U3dhdGNoIEphbnRhPC90ZXh0PiAgPC9zdmc+",
+      "sizes": "432x768",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["government", "utilities", "social"],
+  "prefer_related_applications": false
+}
