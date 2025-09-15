@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, CheckCircle, Clock, Loader } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface ReportStatsProps {
   stats?: {
@@ -12,10 +13,12 @@ interface ReportStatsProps {
 }
 
 export default function ReportStats({ stats, isLoading }: ReportStatsProps) {
+  const { t } = useTranslation();
+  
   if (isLoading) {
     return (
       <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-4">Your Reports Dashboard</h3>
+        <h3 className="text-lg font-semibold mb-4">{t('reports.dashboard')}</h3>
         <div className="grid grid-cols-2 gap-4">
           {[...Array(4)].map((_, i) => (
             <Card key={i} className="shadow-sm">
@@ -35,7 +38,7 @@ export default function ReportStats({ stats, isLoading }: ReportStatsProps) {
 
   const statItems = [
     {
-      label: "Total Reports",
+      label: t('reports.totalReports'),
       value: stats?.total || 0,
       icon: FileText,
       color: "text-primary",
@@ -43,7 +46,7 @@ export default function ReportStats({ stats, isLoading }: ReportStatsProps) {
       testId: "stat-total"
     },
     {
-      label: "Resolved", 
+      label: t('reports.resolved'), 
       value: stats?.resolved || 0,
       icon: CheckCircle,
       color: "text-secondary",
@@ -51,7 +54,7 @@ export default function ReportStats({ stats, isLoading }: ReportStatsProps) {
       testId: "stat-resolved"
     },
     {
-      label: "Pending",
+      label: t('reports.pending'),
       value: stats?.pending || 0,
       icon: Clock,
       color: "text-accent",
@@ -59,7 +62,7 @@ export default function ReportStats({ stats, isLoading }: ReportStatsProps) {
       testId: "stat-pending"
     },
     {
-      label: "In Progress",
+      label: t('reports.inProgress'),
       value: stats?.inProgress || 0,
       icon: Loader,
       color: "text-blue-600",
@@ -70,7 +73,7 @@ export default function ReportStats({ stats, isLoading }: ReportStatsProps) {
 
   return (
     <div className="mb-6">
-      <h3 className="text-lg font-semibold mb-4">Your Reports Dashboard</h3>
+      <h3 className="text-lg font-semibold mb-4">{t('reports.dashboard')}</h3>
       <div className="grid grid-cols-2 gap-4">
         {statItems.map((item) => {
           const IconComponent = item.icon;

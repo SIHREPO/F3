@@ -10,8 +10,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLocation } from "wouter";
 import { Plus, History, User } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
@@ -64,9 +66,9 @@ export default function Home() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-semibold" data-testid="text-welcome">
-                Welcome, {displayName}
+                {t('home.welcome', { name: displayName })}
               </h2>
-              <p className="text-white/80">Citizen Portal</p>
+              <p className="text-white/80">{t('home.citizenPortal')}</p>
             </div>
             <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
               <User size={24} />
@@ -80,7 +82,7 @@ export default function Home() {
 
           {/* Recent Reports */}
           <div className="mb-6">
-            <h4 className="font-semibold mb-3">Recent Reports</h4>
+            <h4 className="font-semibold mb-3">{t('home.recentReports')}</h4>
             {reportsLoading ? (
               <div className="space-y-3">
                 {[...Array(3)].map((_, i) => (
@@ -145,8 +147,8 @@ export default function Home() {
               <Card className="p-8 text-center">
                 <div className="text-muted-foreground">
                   <History size={48} className="mx-auto mb-4 opacity-50" />
-                  <p>No reports yet</p>
-                  <p className="text-sm mt-1">Start by reporting your first civic issue</p>
+                  <p>{t('reports.noReports')}</p>
+                  <p className="text-sm mt-1">{t('reports.startReporting')}</p>
                 </div>
               </Card>
             )}
@@ -154,7 +156,7 @@ export default function Home() {
 
           {/* Quick Actions */}
           <div className="bg-muted rounded-lg p-4">
-            <h4 className="font-semibold mb-3">Quick Actions</h4>
+            <h4 className="font-semibold mb-3">{t('home.quickActions')}</h4>
             <div className="grid grid-cols-2 gap-3">
               <Button 
                 onClick={() => setLocation('/report')}
@@ -162,7 +164,7 @@ export default function Home() {
                 data-testid="button-new-report"
               >
                 <Plus size={16} className="mr-2" />
-                New Report
+                {t('home.newReport')}
               </Button>
               <Button 
                 variant="outline"
@@ -171,7 +173,7 @@ export default function Home() {
                 data-testid="button-view-all"
               >
                 <History size={16} className="mr-2" />
-                View All Reports
+                {t('home.viewAllReports')}
               </Button>
             </div>
           </div>

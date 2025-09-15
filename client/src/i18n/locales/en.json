@@ -26,7 +26,8 @@
     "newReport": "New Report",
     "viewAllReports": "View All Reports",
     "manageReports": "Manage Reports",
-    "viewAnalytics": "View Analytics"
+    "viewAnalytics": "View Analytics",
+    "quickActions": "Quick Actions"
   },
   "reports": {
     "dashboard": "Your Reports Dashboard",
