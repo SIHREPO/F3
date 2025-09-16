@@ -15,6 +15,30 @@ import { relations } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+// Issue categories enum
+export const issueCategoryEnum = pgEnum("issue_category", [
+  "drainage",
+  "pothole", 
+  "wire",
+  "garbage",
+  "street_light",
+]);
+
+// Employee roles enum
+export const employeeRoleEnum = pgEnum("employee_role", [
+  "admin",
+  "supervisor", 
+  "field_worker",
+]);
+
+// Issue status enum
+export const issueStatusEnum = pgEnum("issue_status", [
+  "pending",
+  "in_progress", 
+  "resolved",
+  "rejected",
+]);
+
 // Session storage table for Replit Auth
 export const sessions = pgTable(
   "sessions",
@@ -41,30 +65,6 @@ export const users = pgTable("users", {
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
-
-// Issue categories enum
-export const issueCategoryEnum = pgEnum("issue_category", [
-  "drainage",
-  "pothole", 
-  "wire",
-  "garbage",
-  "street_light",
-]);
-
-// Employee roles enum
-export const employeeRoleEnum = pgEnum("employee_role", [
-  "admin",
-  "supervisor", 
-  "field_worker",
-]);
-
-// Issue status enum
-export const issueStatusEnum = pgEnum("issue_status", [
-  "pending",
-  "in_progress", 
-  "resolved",
-  "rejected",
-]);
 
 // Reports table
 export const reports = pgTable("reports", {
