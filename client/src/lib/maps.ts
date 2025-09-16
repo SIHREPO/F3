@@ -5,7 +5,7 @@ declare global {
   }
 }
 
-const GOOGLE_MAPS_API_KEY = "AIzaSyBSHo5SO-VvKw1B4bJL3GQzS5xxN5yNacE";
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "";
 
 let isGoogleMapsLoaded = false;
 let googleMapsPromise: Promise<void> | null = null;
